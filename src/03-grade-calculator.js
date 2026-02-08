@@ -26,4 +26,21 @@
  */
 export function calculateGrade(score, hasExtraCredit) {
   // Your code here
+  if(score < 0 || score > 100) {
+    return "INVALID"
+  }
+
+  // apply extra credits and cap it to 100 or less
+  let finalScore = score;
+
+  if(hasExtraCredit) {
+    finalScore = Math.min(finalScore + 5,100);
+  }
+
+   // Step 3: Determine grade
+  if(finalScore >= 90) return "A";
+  if(finalScore >= 80) return "B";
+  if(finalScore >= 70) return "C";
+  if(finalScore >= 60) return "D";
+  return "F";
 }
